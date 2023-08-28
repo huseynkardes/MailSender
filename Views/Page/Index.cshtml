@@ -1,0 +1,157 @@
+﻿@model RequestMail.Models.Contact
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "contact-form", action = "" }))
+{
+    if (ViewBag.Success == true)
+    {
+        <span>Mesajınız başarıyla gönderilmiştir.</span>
+    }
+
+   <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+
+        }
+
+
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+
+        .container {
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+
+        .col-100 {
+            float: left;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .img {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+            label {
+                color: #04AA6D;
+                font-weight: bold;
+                width: 130px;
+                float: left;
+            }
+
+           
+
+    </style>
+</head>
+<body>
+
+
+
+    <div class="container">
+        
+        <form method="post">
+
+            <div class="row">
+                <div class="col-100 img">
+                    <img src="https://portal.bdh.com.tr/assets/images/header-logo.png"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100">
+                    <label for="ad">Ad :</label>
+                    <input type="text" asp-for="Ad"  id="ad" name="ad"  placeholder="Ad">
+                    
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-100">
+                        <label for="soyad">Soyad :</label>
+                    <input type="text" asp-for="Soyad" id="soyad" name="soyad" placeholder="Soyad">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-100">
+                        <label for="lokasyon">Lokasyon :</label>
+                        <input type="text" asp-for="Lokasyon" id="lokasyon" required="required" name="lokasyon" placeholder="Çalışma Lokasyonu">
+                        
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-100">
+                        <label for="direktor">Direktör :</label>
+                        <input type="text" asp-for="Direktor" id="direktor" required="required" name="direktor" placeholder="Bağlı Olduğu Direktörlük">
+                        
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-100">
+                        <label for="sirket">Şirket :</label>
+                        <select required="required" asp-for="Sirket" id="sirket" name="sirket">
+                        <option value="">Lütfen bir şirket seçiniz</option>
+                        <option value="BDH">BDH</option>
+                        <option value="netas">Netaş</option>
+                        <option value="netasbilisim">Netaş Bilişim</option>
+                    </select>
+                        
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-100">
+                        <label for="talep">Talep :</label>
+                        <textarea required="required" asp-for="Talep" id="talep" name="talep" placeholder="Lütfen talebinizi belirtin" style="height:200px"></textarea>
+                        
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <input type="submit" value="KAYDET">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+}
